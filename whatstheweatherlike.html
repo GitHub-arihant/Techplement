@@ -1,0 +1,316 @@
+<html>
+
+<head>
+<title>Weather App</title>
+</head>
+
+<body>
+
+<div class="custom-text-top">
+Weatherly.com
+
+
+<br>
+<br>
+<br>
+
+<nav style="text-align:center;" class="navbar">
+    <ul style="text-align:center;" class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Forecast</a></li>
+      <li><a href="#">Maps</a></li>
+      <li><a href="#">Alerts</a></li>
+    </ul>
+ </nav>
+
+</div>
+
+
+
+
+<br>
+<br>
+
+<div class="def">
+<img src="C:\Users\Arihant Jain\Downloads\weather-icon-isolated_23-2151178585.avif" class="moon" alt="Toggle Theme" id="themeToggleButton">
+
+<div class="info-box">
+
+<p id="adminInfo">2nd July 2024 <br> The weather today is pleasant, with slight wind ; Perfect day to the spend time out in the sun!</p>
+</div>
+
+
+<div class="xyz">
+<h1>
+ Vienna
+</h1>
+</div>
+</div>
+
+
+<div class="rst">
+<h2 id="temperature"> 
+27°C
+</h2>
+</div>
+
+
+
+
+
+
+<h3 id="temperature"  >High:33°C &nbsp Low:21°C</h3>
+
+
+    
+ 
+
+
+    <script src="script.js"></script>
+
+
+<script src="script2.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+
+
+
+
+
+
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  color:#fff;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+
+  
+}
+.nav-links li {
+  margin: 0;
+ padding-left:95px;
+ padding-right: 95px;
+ font-size:20px
+
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px; 
+  transition: background-color 0.3s;
+
+
+}
+
+.nav-links a:hover {
+  background-color: #444;
+
+}
+
+
+
+.custom-text-top {
+  color:white;
+  font-size: 35px; 
+  font-family:arial;
+  margin: 20px 0 10px 0; 
+  text-align: left;
+  border: 1px solid black;
+  background-color: darkblue;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+h1 { text-align: center;
+    font-weight:normal;
+    font-family: arial;
+    font-size:50px;
+    font-width:20px;
+    margin-right:10px;
+}
+h2 { text-align: center;
+    font-weight: 100;
+    font-family: arial;
+    font-size:90px;
+    font-width:1px;
+    margin-right:10px;
+  
+}
+
+h3 { text-align: center;
+    font-weight: 100;
+    font-family: arial;
+    font-size:30px;
+    font-width:1px;
+}
+.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+.moon{
+float:left;
+width:8%;
+height:auto;
+cursor: pointer;
+position: fixed;
+transition: opacity 0.5s;
+}
+.moon:hover {
+  opacity: 0.8;
+  position: fixed;
+}
+.def{position:static;
+width:99%;
+left:10%;
+}
+
+.info-box {
+float:right;
+position:relative;
+  width: 60%;
+  max-width: 130px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.info-box p {
+position:relative;
+  font-size: 1rem;
+  line-height: 1.5;
+float:right;
+}
+
+
+.xyz{margin-left:180px;
+}
+.rst{margin-left:180px;
+}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+        
+        <select>
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+        </select>
+        <button onclick="convertTemperature()">Convert</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+function convertTemperature() {
+    const tempElement = document.getElementById('temperature');
+    let temperature = tempElement.innerText;
+    let value = parseFloat(temperature);
+    let newTemp;
+
+    if (temperature.includes('°C')) {
+        // Convert Celsius to Fahrenheit
+        newTemp = (value * 9/5 + 32).toFixed(2) + '°F';
+    } else {
+        // Convert Fahrenheit to Celsius
+        newTemp = ((value - 32) * 5/9).toFixed(2) + '°C';
+    }
+
+    tempElement.innerText = newTemp;
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggleButton = document.getElementById('themeToggleButton');
+  const body = document.body;
+
+  themeToggleButton.addEventListener('click', () => {
+    if (body.classList.contains('light-theme')) {
+      body.classList.remove('light-theme');
+      body.classList.add('dark-theme');
+      themeToggleButton.src = 'path/to/dark-icon.png'; // Change to dark theme icon
+    } else {
+      body.classList.remove('dark-theme');
+      body.classList.add('light-theme');
+      themeToggleButton.src = 'path/to/light-icon.png'; // Change to light theme icon
+    }
+  });
+});
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
